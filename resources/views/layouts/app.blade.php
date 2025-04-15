@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="./logo1.png" type="image/x-icon">
-    <title>Rahman Corporation</title>
+    <title>Youth Skill Development Bangladesh</title>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
     <!-- Fonts -->
@@ -172,7 +172,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <script src="https://cdn.datatables.net/buttons/2.3.0/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.0/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.0/js/buttons.colVis.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Progress Bar Configuration -->
     <script>
     // Configure rainbow progress bar

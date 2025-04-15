@@ -2,8 +2,8 @@
         .marquee-container {
             overflow: hidden;
             position: relative;
-            background-color: #FEF3C7; /* yellow-100 */
-            border: 1px solid #FACC15; /* yellow-400 */
+            /* background-color: #FEF3C7; 
+            border: 1px solid #FACC15;  */
             color: #92400E; /* yellow-800 */
             height: 45px;
             display: flex;

@@ -4,46 +4,46 @@
                 <!-- Left side - Logo and Name -->
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
-                        <svg class="h-8 w-8 text-[#F37021]" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" />
-                        </svg>
-                        <span class="ml-2 text-xl font-bold text-[#045E7B]">YSDB</span>
+                    <div class=" w-16 rounded-full bg-white ">
+    <img src="./logo.png" alt="">
+</div>
+                        <span class="ml-2 text-2xl font-bold text-[#045E7B]">YSDB</span>
                     </div>
                 </div>
 
                 <!-- Right side - Navigation Links -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="/" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-base font-medium">Home</a>
                     
                     <!-- Branches Dropdown -->
                     <div class="dropdown relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false" @click.outside="open = false">
-                        <button @click="open = !open" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-sm font-medium flex items-center">
+                        <button @click="open = !open" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-base font-medium flex items-center">
                             Branches
                             <svg class="ml-1 h-4 w-4 transition-transform duration-200" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
                         <div class="dropdown-menu absolute mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10" x-show="open" x-transition>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F37021] hover:text-white">Branch 1</a>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F37021] hover:text-white">Branch 2</a>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F37021] hover:text-white">Branch 3</a>
+                            <a href="#" class="block px-4 py-2 text-base text-gray-700 hover:bg-[#F37021] hover:text-white">Branch 1</a>
+                            <a href="#" class="block px-4 py-2 text-base text-gray-700 hover:bg-[#F37021] hover:text-white">Branch 2</a>
+                            <a href="#" class="block px-4 py-2 text-base text-gray-700 hover:bg-[#F37021] hover:text-white">Branch 3</a>
                         </div>
                     </div>
                     
-                    <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-sm font-medium">Result</a>
-                    <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-sm font-medium">Gallery</a>
-                    <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-sm font-medium">About Us</a>
-                    <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-sm font-medium">Contact Us</a>
+                    <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-base font-medium">Result</a>
+                    <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-base font-medium">Gallery</a>
+                    <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-base font-medium">About Us</a>
+                    <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-base font-medium">Contact Us</a>
                     
                     <!-- Login Dropdown -->
                     <div class="dropdown relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false" @click.outside="open = false">
-                        <button @click="open = !open" class="text-gray-700 border border-[#F37021] hover:bg-[#F37021] hover:text-[#045E7B] rounded   px-3 py-2 text-sm font-medium flex items-center">
+                        <button @click="open = !open" class="text-gray-700 border border-[#F37021] hover:bg-[#F37021] hover:text-[#045E7B] rounded   px-3 py-2 text-base font-medium flex items-center">
                             Login
                             
                         </button>
                         <div class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10" x-show="open" x-transition>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F37021] hover:text-white">Branch Login</a>
-                            <a href="/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-[#F37021] hover:text-white">Central Login</a>
+                            <a href="/branche/login" class="block px-4 py-2 text-base text-gray-700 hover:bg-[#F37021] hover:text-white">Branch Login</a>
+                            <a href="/login" class="block px-4 py-2 text-base text-gray-700 hover:bg-[#F37021] hover:text-white">Central Login</a>
                         </div>
                     </div>
                 </div>
