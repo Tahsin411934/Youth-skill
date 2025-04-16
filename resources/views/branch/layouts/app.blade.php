@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="./logo1.png" type="image/x-icon">
+    <link rel="icon" href="./logo.png" type="image/x-icon">
     <title>Youth Skill Development Bangladesh</title>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 
@@ -99,20 +99,20 @@
 
 <div class="min-h-screen max-w-[1480px] mx-auto">
     <!-- Fixed Header -->
-    <div class="fixed bg-[#006172] top-0 left-0 w-full z-50">
-        @include('layouts.navigation')
+    <div class="fixed top-0 left-0 w-full z-50">
+        @include('branch.layouts.navigation')
     </div>
     
     <!-- Content Area -->
     <div class="pt-16 min-h-screen flex">
         <!-- Sidebar with transition and dynamic width -->
         <div id="sidebar" class="fixed h-[calc(100vh-4rem)] z-40 transition-all duration-300 ease-in-out w-60">
-            @include('layouts.sidebar')
+            @include('branch.layouts.sidebar')
         </div>
         
         <!-- Main Content with dynamic margin -->
         <main id="main-content" class="ml-60 flex-1 transition-all duration-300 ease-in-out">
-            {{ $slot }}
+        @yield('content')
         </main>
     </div>
 </div>

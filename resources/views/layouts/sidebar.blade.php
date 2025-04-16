@@ -28,15 +28,35 @@
                 <div class="px-2">
                     <h3 class="text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2 ml-3 whitespace-nowrap sidebar-text" id="menu-heading">Main Menu</h3>
                     
-                    <!-- Students -->
-                    <a href="#" class="flex items-center px-3 py-2.5 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition mb-1">
-                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                        <span class="ml-3 whitespace-nowrap transition-all duration-300 sidebar-text">Students</span>
-                    </a>
+                    <!-- Students Dropdown -->
+                    <div id="student-dropdown" class="mb-1">
+                        <button class="flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition focus:outline-none">
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                </svg>
+                                <span class="ml-3 whitespace-nowrap transition-all duration-300 sidebar-text text-left">Students</span>
+                            </div>
+                            <svg class="w-4 h-4 flex-shrink-0 transition-transform duration-200" id="student-dropdown-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="student-dropdown-list" class="mt-1 space-y-1 pl-8 hidden">
+                           
+                            <a href="/central/panding/students"
+                                class="flex items-center px-3 py-2 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-400 mr-3"></span>
+                                <span class="whitespace-nowrap transition-all duration-300 sidebar-text">Pending Students</span>
+                            </a>
+                            <a href="/central/students"
+                                class="flex items-center px-3 py-2 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-400 mr-3"></span>
+                                <span class="whitespace-nowrap transition-all duration-300 sidebar-text">Students</span>
+                            </a>
+                        </div>
+                    </div>
 
-                    <!-- Courses -->
+                    <!-- Courses Dropdown -->
                     <div id="courses-dropdown" class="mb-1">
                         <button class="flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition focus:outline-none">
                             <div class="flex items-center">
@@ -54,25 +74,27 @@
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-400 mr-3"></span>
                                 <span class="whitespace-nowrap transition-all duration-300 sidebar-text">All Courses</span>
                             </a>
-                            <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition">
+                            <a href="/courses/create" class="flex items-center px-3 py-2 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-400 mr-3"></span>
                                 <span class="whitespace-nowrap transition-all duration-300 sidebar-text">Add New</span>
                             </a>
-                            <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition">
+                            <a href="/branch/assign-course" class="flex items-center px-3 py-2 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-400 mr-3"></span>
-                                <span class="whitespace-nowrap transition-all duration-300 sidebar-text">Categories</span>
+                                <span class="whitespace-nowrap transition-all duration-300 sidebar-text">Assign Courses</span>
                             </a>
                         </div>
                     </div>
+                    
+                    <!-- Branches Dropdown -->
                     <div id="branch-dropdown" class="mb-1">
                         <button class="flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition focus:outline-none">
                             <div class="flex items-center">
                                 <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                 </svg>
                                 <span class="ml-3 whitespace-nowrap transition-all duration-300 sidebar-text text-left">Branches</span>
                             </div>
-                            <svg class="w-4 h-4 flex-shrink-0 transition-transform duration-200" id="courses-dropdown-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="w-4 h-4 flex-shrink-0 transition-transform duration-200" id="branch-dropdown-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
@@ -83,33 +105,17 @@
                             </a>
                             <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-400 mr-3"></span>
-                                <span class="whitespace-nowrap transition-all duration-300 sidebar-text">All Branch</span>
+                                <span class="whitespace-nowrap transition-all duration-300 sidebar-text">All Branches</span>
                             </a>
-                           
                         </div>
                     </div>
-
-                    <!-- Classes -->
-                    <a href="#" class="flex items-center px-3 py-2.5 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition mb-1">
-                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                        <span class="ml-3 whitespace-nowrap transition-all duration-300 sidebar-text">Classes</span>
-                    </a>
-
-                    <!-- Attendance -->
-                    <a href="#" class="flex items-center px-3 py-2.5 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition mb-1">
-                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span class="ml-3 whitespace-nowrap transition-all duration-300 sidebar-text">Attendance</span>
-                    </a>
                 </div>
 
                 <!-- Administration Section -->
                 <div class="px-2 pt-4">
                     <h3 class="text-xs font-semibold text-blue-300 uppercase tracking-wider mb-2 ml-3 whitespace-nowrap sidebar-text" id="admin-heading">Administration</h3>
                     
+                    <!-- System Dropdown -->
                     <div id="admin-dropdown" class="mb-1">
                         <button class="flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium text-blue-200 rounded-lg hover:bg-blue-700 hover:text-white group transition focus:outline-none">
                             <div class="flex items-center">
@@ -176,14 +182,11 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.getElementById('sidebar');
     const sidebarContainer = document.getElementById('sidebar-container');
     const sidebarToggle = document.getElementById('sidebar-toggle');
     const toggleIcon = document.getElementById('toggle-icon');
     const logoText = document.getElementById('sidebar-logo-text');
     const divHide = document.getElementById('divHide');
-    
-    // All text elements with sidebar-text class (excluding the logo text for special handling)
     const sidebarTexts = document.querySelectorAll('.sidebar-text:not(#sidebar-logo-text)');
     const dropdownContents = document.querySelectorAll('[id$="-dropdown-list"]');
     const dropdownIcons = document.querySelectorAll('[id$="-dropdown-icon"]');
@@ -215,15 +218,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Change icon to double arrow right
         toggleIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>';
         
-        // Hide logo text specifically
+        // Hide logo text
         logoText.classList.add('hidden');
         
         // Hide all other sidebar texts
-        sidebarTexts.forEach(el => {
-            el.classList.add('hidden');
-        });
+        sidebarTexts.forEach(el => el.classList.add('hidden'));
         
-        // Center align navigation icons when collapsed (excluding the logo container)
+        // Center align navigation icons when collapsed
         document.querySelectorAll('#nav-container a, #nav-container button').forEach(el => {
             if (!el.classList.contains('justify-center')) {
                 el.classList.add('justify-center');
@@ -246,9 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
         logoText.classList.remove('hidden');
         
         // Show all sidebar texts
-        sidebarTexts.forEach(el => {
-            el.classList.remove('hidden');
-        });
+        sidebarTexts.forEach(el => el.classList.remove('hidden'));
         
         // Remove center alignment from navigation items
         document.querySelectorAll('#nav-container a, #nav-container button').forEach(el => {
@@ -267,18 +266,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const content = document.getElementById(contentId);
             const icon = document.getElementById(iconId);
             
+            // Toggle current dropdown
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+            
             // Close all other dropdowns
             document.querySelectorAll('[id$="-dropdown-list"]').forEach(otherContent => {
                 if (otherContent.id !== contentId) {
                     otherContent.classList.add('hidden');
-                    const otherIcon = document.getElementById(otherContent.previousElementSibling.querySelector('[id$="-dropdown-icon"]').id);
+                    const otherIconId = otherContent.id.replace('-list', '-icon');
+                    const otherIcon = document.getElementById(otherIconId);
                     if (otherIcon) otherIcon.classList.remove('rotate-180');
                 }
             });
-            
-            // Toggle current dropdown
-            content.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
         });
     });
     

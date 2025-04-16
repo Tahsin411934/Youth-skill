@@ -16,8 +16,17 @@ class BranchController extends Controller
      */
     public function index()
     {
-        $branches = Branch::all();
-        return Branch::all();
+        // Remove the dd() and return the joined data
+        return Branch::leftJoin('divisions', 'branches.division_id', '=', 'divisions.id')
+            ->leftJoin('districts', 'branches.district_id', '=', 'districts.id')
+            ->leftJoin('upazilas', 'branches.upazila_id', '=', 'upazilas.id')
+            ->select(
+                'branches.*',
+                'divisions.name as division_name',
+                'districts.name as district_name',
+                'upazilas.name as upazila_name'
+            )
+            ->get();
     }
 
     /**
@@ -32,6 +41,7 @@ class BranchController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     { 
         $validated = $request->validate([
@@ -44,7 +54,6 @@ class BranchController extends Controller
             'phone' => 'nullable|string|max:20',
             'login_username' => 'required|string|max:100|unique:branches',
             'password' => 'required|string|min:8|confirmed',
-            
         ]);
 
         Branch::create([
@@ -56,8 +65,7 @@ class BranchController extends Controller
             'division_id' => $validated['division_id'],
             'phone' => $validated['phone'],
             'login_username' => $validated['login_username'],
-            'password_hash' => Hash::make($validated['password']),
-            
+            'password_hash' => $validated['password'], // Hash the password
         ]);
 
         return redirect()->back()->with('success', 'Branch created successfully.');
@@ -71,9 +79,21 @@ class BranchController extends Controller
         return view('branches.show', compact('branch'));
     }
     public function showtable()
-    {
-        return view('central.branches.show');
-    }
+{
+    $divisions = Division::orderBy('name')->get(['id', 'name']);
+    $branches = Branch::leftJoin('divisions', 'branches.division_id', '=', 'divisions.id')
+        ->leftJoin('districts', 'branches.district_id', '=', 'districts.id')
+        ->select(
+            'branches.*',
+            'divisions.name as division_name',
+            'divisions.id as division_id',
+            'districts.name as district_name',
+            'districts.id as district_id'
+        )
+        ->get();
+    
+    return view('central.branches.show', compact('divisions', 'branches'));
+}
 
     /**
      * Show the form for editing the specified resource.
@@ -145,15 +165,16 @@ class BranchController extends Controller
     
         $branch = Branch::where('login_username', $credentials['username'])->first();
     
-        if (!$branch || !Hash::check($credentials['password'], $branch->password_hash)) {
+        if (!$branch || $credentials['password'] !== $branch->password_hash) {
             return back()->withErrors(['login' => 'Invalid credentials'])->withInput();
         }
     
         // Store branch in session
         session(['branch' => $branch]);
     
-        return redirect()->route('branches.dashboard')->with('success', 'Login successful');
+        return redirect()->route('branch.dashboard')->with('success', 'Login successful');
     }
+
 
     /**
      * Branch dashboard
@@ -161,18 +182,28 @@ class BranchController extends Controller
     public function dashboard()
     {
         if (!session('branch')) {
-            return redirect()->route('branches.login');
+            return redirect()->route('branch.login');
         }
 
-        return view('branches.dashboard', ['branch' => session('branch')]);
+        return view('branch.dashboard', ['branch' => session('branch')]);
     }
+    
 
     /**
      * Logout
      */
-    public function logout()
-    {
-        session()->forget('branch');
-        return redirect()->route('branches.login')->with('success', 'Logged out successfully');
-    }
+   /**
+ * Logout the branch
+ */
+public function logout(Request $request)
+{
+    // Remove branch from session
+    session()->forget('branch');
+    
+    // Optional: Regenerate session ID for security
+    $request->session()->regenerate();
+    
+    // Redirect to login page with success message
+    return redirect()->route('branch.login')->with('success', 'You have been logged out successfully');
+}
 }

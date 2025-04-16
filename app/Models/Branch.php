@@ -7,7 +7,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
-
+use Devfaysal\BangladeshGeocode\Models\Division;
+use Devfaysal\BangladeshGeocode\Models\District;
+use Devfaysal\BangladeshGeocode\Models\Upazila;
 class Branch extends Model
 {
     use HasFactory;
@@ -29,19 +31,36 @@ class Branch extends Model
         'password_hash'
     ];
 
-    public function setPasswordHashAttribute($value)
-    {
-        $this->attributes['password_hash'] = Hash::make($value);
-    }
+    // public function setPasswordHashAttribute($value)
+    // {
+    //     $this->attributes['password_hash'] = Hash::make($value);
+    // }
 
     public static function authenticate($username, $password)
     {
         $branch = self::where('login_username', $username)->first();
-
-        if (!$branch || !Hash::check($password, $branch->password_hash)) {
+    
+        if (!$branch || !$branch->is_active) {
             return null;
         }
-
+    
         return $branch;
+    }
+
+    public function division()
+    {
+        return $this->belongsTo(Division::class);
+    }
+    
+    // Relationship with District
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+    
+    // Relationship with Upazila
+    public function upazila()
+    {
+        return $this->belongsTo(Upazila::class);
     }
 }

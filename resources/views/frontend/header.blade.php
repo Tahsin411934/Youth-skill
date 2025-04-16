@@ -5,7 +5,7 @@
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
                     <div class=" w-16 rounded-full bg-white ">
-    <img src="./logo.png" alt="">
+    <img src="logo.png" alt="">
 </div>
                         <span class="ml-2 text-2xl font-bold text-[#045E7B]">YSDB</span>
                     </div>
@@ -32,6 +32,7 @@
                     
                     <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-base font-medium">Result</a>
                     <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-base font-medium">Gallery</a>
+                    <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-base font-medium">Notice</a>
                     <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-base font-medium">About Us</a>
                     <a href="#" class="text-gray-700 hover:text-[#F37021] px-3 py-2 text-base font-medium">Contact Us</a>
                     
@@ -42,7 +43,7 @@
                             
                         </button>
                         <div class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10" x-show="open" x-transition>
-                            <a href="/branche/login" class="block px-4 py-2 text-base text-gray-700 hover:bg-[#F37021] hover:text-white">Branch Login</a>
+                            <a href="/branch/dashboard" class="block px-4 py-2 text-base text-gray-700 hover:bg-[#F37021] hover:text-white">Branch Login</a>
                             <a href="/login" class="block px-4 py-2 text-base text-gray-700 hover:bg-[#F37021] hover:text-white">Central Login</a>
                         </div>
                     </div>

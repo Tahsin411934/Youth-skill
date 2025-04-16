@@ -97,10 +97,10 @@
 
 
 
-<div class="min-h-screen max-w-[1480px] mx-auto">
+<div class="min-h-screen">
     <!-- Fixed Header -->
-    <div class="fixed bg-[#006172] top-0 left-0 w-full z-50">
-        @include('layouts.navigation')
+    <div class="fixed top-0 left-0 w-full z-50">
+        @include('branch.layouts.navigation')
     </div>
     
     <!-- Content Area -->

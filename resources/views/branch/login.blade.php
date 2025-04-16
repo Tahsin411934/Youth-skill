@@ -37,7 +37,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('branches.login') }}" class="space-y-6">
+        <form method="POST" action="{{ route('branch.login') }}" class="space-y-6">
             @csrf
             
             <div class="space-y-5">

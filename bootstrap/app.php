@@ -11,8 +11,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // Register middleware aliases here
+        $middleware->alias([
+            'branch.auth' => \App\Http\Middleware\BranchAuth::class,
+        ]);
+        
+        // You can also add middleware to groups here if needed
+        // $middleware->appendToGroup('web', \App\Http\Middleware\EncryptCookies::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        // Exception handling configuration goes here
+        // Not for middleware registration
     })->create();
